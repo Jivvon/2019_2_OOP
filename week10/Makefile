@@ -11,7 +11,7 @@ $(TARGET) : $(MAIN)
 	$(CXX) -o $(TARGET) $(MAIN)
 
 clean :
-	rm -rf $(MAIN) $(TARGET) $(TEST) $(TEST_FILE)
+	rm -rf $(MAIN) $(TARGET)
 
 main.o : main.cpp
 

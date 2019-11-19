@@ -17,9 +17,9 @@ int main()
     std::cout << "i :       \t" << &i << std::endl;
     std::cout << "c :       \t" << &c << std::endl;
     std::cout << "copy :    \t" << &copy << std::endl;
-    std::cout << "name :    \t" << (int *)&name << std::endl;
+    std::cout << "name :    \t" << (void *)&name << std::endl;
 
-    std::cout << "\ntest :    \t" << ((int *)&target - (int *)&name) * sizeof(int) << std::endl;
+    std::cout << "\ntest :    \t" << ((void *)&target - (void *)&name) * sizeof(int) << std::endl;
 
     std::cout << "\ntarget : \t" << sizeof(target) << std::endl;
     std::cout << "b :       \t" << sizeof(b) << std::endl;
@@ -27,7 +27,7 @@ int main()
     std::cout << "i :       \t" << sizeof(i) << std::endl;
     std::cout << "c :       \t" << sizeof(c) << std::endl;
     std::cout << "copy :    \t" << sizeof(copy) << std::endl;
-    std::cout << "name :    \t" << sizeof((int *)name) << std::endl;
+    std::cout << "name :    \t" << sizeof((void *)name) << std::endl;
 
     std::cout << "&name + i - 4 : " << &name + i - 4 << std::endl;
     std::cout << "&name + i - 3 : " << &name + i - 3 << std::endl;
