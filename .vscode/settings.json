@@ -74,7 +74,10 @@
         "utility": "cpp",
         "vector": "cpp",
         "*.tcc": "cpp",
-        "memory_resource": "cpp"
+        "memory_resource": "cpp",
+        "__tree": "cpp",
+        "filesystem": "cpp",
+        "map": "cpp"
     },
     "python.pythonPath": "/usr/local/bin/python"
 }
