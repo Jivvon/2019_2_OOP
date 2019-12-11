@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <set>
+#include "block.h"
 #include "color_block.h"
 using namespace std;
 
@@ -14,7 +15,7 @@ using namespace std;
 
 class arr2d
 {
-private:
+protected:
     static block *board[MAP_WIDTH][MAP_HEIGHT];
     static set<color_block *> explosion_s;
     static int score;
@@ -28,12 +29,13 @@ public:
     static void insert(int x, int y, block *b);
     static block *get_block(int x, int y);
     static bool can_move(int x, int y);
-    void print();
+    static void print();
     static void insert_explosion(color_block *group);
     static void remove_explosion(color_block *group);
     static bool can_explosion();
     static void explosion();
-    int get_score();
+    static void swap_block(int x1, int y1, int x2, int y2);
+    static int get_score();
 };
 
 #endif //MAP_H

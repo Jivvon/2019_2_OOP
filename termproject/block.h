@@ -25,18 +25,18 @@ class color_block;
 
 class block
 {
-private:
+protected:
     int color;
-    static int x, y;
+    int x, y;
     color_block *group;
 
 public:
-    explicit block(int color);
-    explicit block(int color, int x, int y);
+    block(int color);
+    block(int color, int x, int y);
     ~block();
     int get_color();
-    static int get_x();
-    static int get_y();
+    int get_x();
+    int get_y();
     void set_group(color_block *group);
     color_block *get_group();
     void set_location(int x, int y);
