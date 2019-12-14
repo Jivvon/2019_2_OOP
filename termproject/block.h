@@ -25,7 +25,7 @@ class color_block;
 
 class block
 {
-protected:
+private:
     int color;
     int x, y;
     color_block *group;

@@ -15,7 +15,7 @@ using namespace std;
 
 class arr2d
 {
-protected:
+private:
     static block *board[MAP_WIDTH][MAP_HEIGHT];
     static set<color_block *> explosion_s;
     static int score;

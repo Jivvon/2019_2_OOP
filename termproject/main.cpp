@@ -15,6 +15,7 @@ int main()
     {
         srand((unsigned int)time(0));
         int block_type = rand() % 3 + 1;
+        // int block_type = FOLD;
 
         if (!game->can_make(block_type)) // 생성 불가면 출력하고 종료
         {
@@ -29,6 +30,7 @@ int main()
         for (int i = 0; i < 5; i++)
         {
             c[i] = rand() % 4 + 1;
+            // c[i] = 3;
         }
         if (block_type == FOLD)
             input_block = dynamic_cast<big_block *>(new fold_block(c[1], c[2], c[3]));
@@ -42,17 +44,17 @@ int main()
         {
             std::system("clear");
             game->print();
+            fflush(stdin);
             ch = getchar();
             input_block->move(ch);
         }
         input_block->down_all(); // 정리하고
         delete input_block;
-        // game->print();
 
         // 블록 결합 및 검사
         game->explosion(); // 여기서 while 돌면서 계속 처리해줘야 콤보 가능
 
-        std::system("clear");
-        game->print();
+        // std::system("clear");
+        // game->print();
     }
 }

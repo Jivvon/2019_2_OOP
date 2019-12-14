@@ -1,5 +1,4 @@
 #include "tree_block.h"
-// #include "arr2d.cpp"
 using namespace std;
 
 tree_block::tree_block(int c1, int c2, int c3)

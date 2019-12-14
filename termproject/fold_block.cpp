@@ -1,6 +1,5 @@
 #include <iostream>
 #include "fold_block.h"
-// #include "arr2d.cpp"
 using namespace std;
 
 fold_block::fold_block(int c1, int c2, int c3)
@@ -29,8 +28,6 @@ fold_block::fold_block(int c1, int c2, int c3)
 
 void fold_block::rotate()
 {
-
-    cout << "rotate call" << endl;
     // can_rotate는 rotate 호출할 때 해준다
     if (!can_rotate()) // 돌릴 수 없으면 끝
         return;
@@ -43,7 +40,6 @@ void fold_block::rotate()
             4 2 로 시계방향으로 돌아간다
     */
 
-    // cout << "rotate go" << endl;
     arr2d::swap_block(min_x, min_y, max_x, min_y); // swap(1,2)
     arr2d::swap_block(min_x, max_y, max_x, max_y); // swap(3,4)
     arr2d::swap_block(min_x, min_y, max_x, max_y); // swap(1,4)
@@ -53,15 +49,12 @@ bool fold_block::can_rotate()
 {
     // 2*2 칸 중에 비어있는 칸은 한 칸
     // 비어있는 칸이 있으면 true
-    // block *empty_block;
     for (int i = min_x; i <= max_x; i++)
     {
         for (int j = min_y; j <= max_y; j++)
         {
             if (arr2d::get_block(i, j)->get_color() == 0)
             {
-                // empty_block = arr2d::get_block(i, j);
-                // break;
                 return true;
             }
         }

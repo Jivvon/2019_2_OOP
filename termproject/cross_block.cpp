@@ -1,6 +1,4 @@
 #include "cross_block.h"
-// #include "block.h"
-// #include "arr2d.cpp"
 using namespace std;
 
 cross_block::cross_block(int c1, int c2, int c3, int c4, int c5)

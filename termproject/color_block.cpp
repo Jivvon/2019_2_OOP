@@ -6,21 +6,12 @@ using namespace std;
 
 color_block::color_block(block *b)
 {
-    // cout << "make color_block  : " << b << endl;
-    set<block *> tmp;
-    this->s = tmp;
     this->s.insert(b);
 }
 void color_block::inset(set<block *> s)
 {
-    cout << "color_block set size : " << this->s.size() << endl;
-
+    this->s.insert(s.begin(), s.end());
     /* 내 set에 s를 넣는거 */
-    for (set<block *>::iterator it = s.begin(); it != s.end(); ++it)
-    {
-        this->s.insert(*it);
-    }
-    cout << "color_block set size : " << this->s.size() << endl;
 }
 set<block *> color_block::get_set()
 {
@@ -41,7 +32,7 @@ void color_block::explosion()
         int x = thisbl->get_x(),
             y = thisbl->get_y();
 
-        cout << x << ", " << y << " : " << thisbl->get_color() << "   :   " << thisbl << endl;
+        // cout << x << ", " << y << " : " << thisbl->get_color() << "   :   " << thisbl << endl;
         // 왼쪽
         if (x != 0 && thisbl->can_explosion(arr2d::get_block(x - 1, y)))
         {
@@ -66,7 +57,7 @@ void color_block::explosion()
             delete arr2d::get_block(x, y - 1);
             arr2d::insert(x, y - 1, new block(0));
         }
-        delete (*it);
+        delete (*it); // 작은 블록 delete
         arr2d::insert(x, y, new block(0));
     }
 }

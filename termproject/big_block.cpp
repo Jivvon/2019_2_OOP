@@ -13,7 +13,7 @@
 
 big_block::~big_block()
 {
-    std::cout << "call ~big in big_block" << std::endl;
+    // std::cout << "call ~big in big_block" << std::endl;
 
     /*
         1. color_block 합쳐질 수 있는지 확인 : 블록이 붙어있어야 하고 && 색깔이 같아야 한다
@@ -30,9 +30,7 @@ big_block::~big_block()
     {
         block *blk = *it;
         blk->find_merge(); // 합칠 수 있으면 합친다.
-        cout << "size :   " << blk->get_group()->get_set_size() << endl;
-        // if (blk->get_group()->get_set_size() == 1)     // 합쳐진 게 하나도 없다면
-        //     arr2d::insert_explosion(blk->get_group()); // explosion_s에 넣는다
+        // cout << "size :   " << blk->get_group()->get_set_size() << endl;
     }
 
     v.clear();
@@ -73,8 +71,6 @@ bool big_block::can_right()
             cnt--;
     }
 
-    // cout << "cnt : " << cnt << endl;
-
     if (cnt < 0)
         return false;
     else
@@ -107,18 +103,8 @@ void big_block::left()
         return;
     /*
         작은 블록들을 다 왼쪽으로 옮긴다.
-        
-        작은 블록 left : 
-            현재 위치 delete : 메꾸지 마
-            x--
-            insert to board : 딱 insert만 
         min_x--;
         max_x--;
-
-        ## print 할 때 없으면 빈 블록 넣어주자 ##
-
-        //
-        걍 while로 다 할 때까지 쭉 돌자
     */
 
     int cnt = v.size();       // 현재 big_block에 포함된 작은 블록의 개수
@@ -171,7 +157,6 @@ bool big_block::down()
     vector<int> tmp(cnt, -1); // 성공할 때마다 인덱스로 하나씩 추가할거야 기본값은 -1
     while (cnt > 0)           // 모든 블록이 성공할 때까지
     {
-        // cout << "cnt : " << cnt << endl;
         int idx = 0;
         for (vector<block *>::iterator it = v.begin(); it != v.end(); it++, idx++)
         {
