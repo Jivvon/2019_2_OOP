@@ -15,7 +15,6 @@ int main()
     {
         srand((unsigned int)time(0));
         int block_type = rand() % 3 + 1;
-        // int block_type = FOLD;
 
         if (!game->can_make(block_type)) // 생성 불가면 출력하고 종료
         {
@@ -30,7 +29,6 @@ int main()
         for (int i = 0; i < 5; i++)
         {
             c[i] = rand() % 4 + 1;
-            // c[i] = 3;
         }
         if (block_type == FOLD)
             input_block = dynamic_cast<big_block *>(new fold_block(c[1], c[2], c[3]));

@@ -37,7 +37,6 @@ big_block::~big_block()
 }
 bool big_block::can_left()
 {
-    // std::cout << "call can_left in big_block" << std::endl;
     int cnt;
     if (this->type() == FOLD)
         cnt = 1;
@@ -98,17 +97,10 @@ bool big_block::can_down()
 }
 void big_block::left()
 {
-    // std::cout << "call left in big_block" << std::endl;
     if (!can_left())
         return;
-    /*
-        작은 블록들을 다 왼쪽으로 옮긴다.
-        min_x--;
-        max_x--;
-    */
-
     int cnt = v.size();       // 현재 big_block에 포함된 작은 블록의 개수
-    vector<int> tmp(cnt, -1); // 성공할 때마다 인덱스로 하나씩 추가할거야 기본값은 -1
+    vector<int> tmp(cnt, -1); // 성공할 때마다 인덱스로 바꿀 예정 기본값은 -1
     while (cnt > 0)           // 모든 블록이 성공할 때까지
     {
         int idx = 0;
@@ -123,7 +115,7 @@ void big_block::left()
             }
         }
     }
-    min_x--;
+    min_x--; // 작은 블록들 전부 왼쪽으로 1만큼 이동함
     max_x--;
 }
 void big_block::right()
@@ -200,31 +192,31 @@ bool big_block::move(int input)
 {
     switch (input)
     {
-    case 'a': // left
+    case LEFT_KEY: // left
         if (can_left())
         {
             left();
             return true;
         }
         break;
-    case 'd': // right
+    case RIGHT_KEY: // right
         if (can_right())
         {
             right();
             return true;
         }
         break;
-    case 's': // down
+    case DOWN_KEY: // down
         if (can_down())
         {
             down();
             return true;
         }
         break;
-    case 'x': // down_all
+    case ALL_DOWN_KEY: // down_all
         return down_all();
         break;
-    case 'e': // rotate
+    case ROTATE_KEY: // rotate
         if (can_rotate())
         {
             rotate();

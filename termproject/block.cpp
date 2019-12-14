@@ -129,7 +129,7 @@ void block::merge(block *b)
         1. b의 color_block에 나의 color_block을 inset한다
         2. arr2d의 explosion_s에서 나의 color_block을 없앤다
         3. 내 color_block과 b의 color_block 동기화
-        4. 내 color_block을 메모리 해제한 후
+        4. 내 color_block을 메모리 해제
     */
 
     b->get_group()->inset(this->group->get_set());

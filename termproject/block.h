@@ -10,7 +10,7 @@
 #define ALL_DOWN_KEY 120 // x
 #define ROTATE_KEY 101   // e : 시계방향으로 돌리자
 
-// block type == 만들어질 때의 가로 길이와 같다
+// block type
 #define FOLD 1
 #define TREE 2
 #define CROSS 3
