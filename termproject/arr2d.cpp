@@ -99,16 +99,38 @@ bool arr2d::can_move(int x, int y)
 }
 void arr2d::print()
 {
-    cout << "201502119 정지원 뿌요뿌요" << endl;
-    cout << "score : " << get_score() << endl;
+    cout << "뿌요뿌요" << endl;
+    cout << "score : " << get_score() << "\n"
+         << endl;
     for (int j = 0; j < MAP_HEIGHT; j++)
     {
+        cout << bold << " |" << reset;
         for (int i = 0; i < MAP_WIDTH; i++)
         {
-            cout << get_block(i, j)->get_color() << "  ";
+            int thisColor = get_block(i, j)->get_color();
+            switch (thisColor)
+            {
+            case GREY:
+                cout << on_white << "  " << reset;
+                break;
+            case RED:
+                cout << on_red << "  " << reset;
+                break;
+            case GREEN:
+                cout << on_green << "  " << reset;
+                break;
+            case BLUE:
+                cout << on_blue << "  " << reset;
+                break;
+
+            default:
+                cout << white << " ." << reset;
+            }
         }
-        cout << endl;
+        cout << bold << "|" << reset << endl;
+        // cout << endl;
     }
+    cout << bold << " ------------" << reset << endl;
 }
 
 void arr2d::insert_explosion(color_block *group)

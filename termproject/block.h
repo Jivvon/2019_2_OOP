@@ -16,6 +16,7 @@
 #define CROSS 3
 
 // block color
+#define NOCOLOR 0
 #define GREY 1
 #define RED 2
 #define GREEN 3

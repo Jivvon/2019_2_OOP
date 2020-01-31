@@ -5,7 +5,9 @@
 #include <set>
 #include "block.h"
 #include "color_block.h"
+#include "termcolor.hpp"
 using namespace std;
+using namespace termcolor;
 
 #define MAP_WIDTH 5
 #define MAP_HEIGHT 12
